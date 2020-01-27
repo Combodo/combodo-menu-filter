@@ -30,11 +30,8 @@ class PageUIExtension implements iPageUIExtension
 	const HTML_PREFIX = "cmf";
 
 	/**
-	 * Add content to the North pane
-	 *
-	 * @param iTopWebPage $oPage The page to insert stuff into.
-	 *
-	 * @return string The HTML content to add into the page
+	 * @inheritDoc
+	 * @throws \Exception
 	 */
 	public function GetNorthPaneHtml(iTopWebPage $oPage)
 	{
@@ -182,11 +179,7 @@ JS
 	}
 
 	/**
-	 * Add content to the South pane
-	 *
-	 * @param iTopWebPage $oPage The page to insert stuff into.
-	 *
-	 * @return string The HTML content to add into the page
+	 * @inheritDoc
 	 */
 	public function GetSouthPaneHtml(iTopWebPage $oPage)
 	{
@@ -194,11 +187,7 @@ JS
 	}
 
 	/**
-	 * Add content to the "admin banner"
-	 *
-	 * @param iTopWebPage $oPage The page to insert stuff into.
-	 *
-	 * @return string The HTML content to add into the page
+	 * @inheritDoc
 	 */
 	public function GetBannerHtml(iTopWebPage $oPage)
 	{

@@ -28,7 +28,7 @@ SetupWebPage::AddModule(
 	array(
 		// Identification
 		//
-		'label' => 'Menu Filter',
+		'label' => 'Admin. console: Quick menu filter',
 		'category' => 'business',
 
 		// Setup

@@ -1,4 +1,21 @@
 <?php
+/**
+ * Copyright (C) 2013-2020 Combodo SARL
+ *
+ * This file is part of iTop.
+ *
+ * iTop is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * iTop is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ */
 
 namespace Combodo\iTop\MenuFilter;
 
@@ -49,55 +66,66 @@ HTML;
 			oMenuElem.prepend($sFilterTextboxJson);
 			// TODO: Put tooltip nicely. oMenuElem.find('#$sPrefix-input').qtip();
 			
-			// Bind key strokes on input
+			// Bind events
+			// - Input focus in
+			$('#$sPrefix-input').on('focusin', function(){
+				{$sPrefix}SetActive();
+			});
+			// - Input focus out
+			$('#$sPrefix-input').on('focusout', function(){
+				if({$sPrefix}GetFilterValue() === '')
+				{
+					{$sPrefix}SetInactive();
+				}
+			});
+			// - Key strokes on input
 			$('#$sPrefix-input').on('keyup', function(oEvent){
 				var oInputElem = $(this);
 				
-					//filter mnenus listener
-					var sFilterInputValue = oInputElem.val();
-					
-					if ((sFilterInputValue === "") || (oEvent.key === "Escape")) 
-					{
-						{$sPrefix}ClearFiltering();		
-						{$sPrefix}UpdateEmptyLabel();				
-					} 
-					else 
-					{
-						oMenuElem.find('#$sPrefix-input-wrapper').addClass('filtered');
-						// Reset throttle timeout on key stroke
-						clearTimeout(r{$sPrefix}KeyTimeout);
-						r{$sPrefix}KeyTimeout = setTimeout(function(){
-							{$sPrefix}FilterMenus(sFilterInputValue);
-							{$sPrefix}UpdateEmptyLabel();
-						}, 200);
-					}
-			});
-			
-			$('#$sPrefix-clear-icon').on('click', function(){
-				{$sPrefix}ClearFiltering();
-			});
-			
-			function {$sPrefix}UpdateEmptyLabel()
-			{
-				if (oMenuElem.find('.navigation-menu-group:visible').length === 0)
+				//filter mnenus listener
+				var sFilterInputValue = {$sPrefix}GetFilterValue();
+				
+				if ((sFilterInputValue === "") || (oEvent.key === "Escape")) 
 				{
-					oMenuElem.find('#$sPrefix-empty-label').addClass('displayed');	
-				}
+					{$sPrefix}ClearFiltering();
+					{$sPrefix}UpdateEmptyLabel();
+				} 
 				else 
 				{
-					oMenuElem.find('#$sPrefix-empty-label').removeClass('displayed');
+					// Reset throttle timeout on key stroke
+					clearTimeout(r{$sPrefix}KeyTimeout);
+					r{$sPrefix}KeyTimeout = setTimeout(function(){
+						{$sPrefix}FilterMenus(sFilterInputValue);
+						{$sPrefix}UpdateEmptyLabel();
+					}, 200);
 				}
-			}
+			});
+			// - Clear icon
+			$('#$sPrefix-clear-icon').on('click', function(){
+				{$sPrefix}ClearFiltering();
+				{$sPrefix}UpdateEmptyLabel();
+				$('#$sPrefix-input').trigger('focus');
+			});
 			
+			function {$sPrefix}SetActive()
+			{
+				oMenuElem.find('#$sPrefix-filter-textbox').addClass('active');
+			}
+			function {$sPrefix}SetInactive()
+			{
+				oMenuElem.find('#$sPrefix-filter-textbox').removeClass('active');
+			}
+			function {$sPrefix}GetFilterValue()
+			{
+				return $('#$sPrefix-input').val();
+			}
 			function {$sPrefix}ClearFiltering()
 			{
-				oMenuElem.find('#$sPrefix-input-wrapper').removeClass('filtered');
-				{$sPrefix}DisplayActiveMenu();	
-				
 				// Empty text box
 				$('#$sPrefix-input').val('');
+				{$sPrefix}DisplayActiveMenu();
+				{$sPrefix}UpdateEmptyLabel();
 			}
-			
 			function {$sPrefix}FilterMenus(sFilterInputValue)
 			{
 				var sFormattedInputValue = sFilterInputValue.toLowerCase().latinise();
@@ -125,16 +153,27 @@ HTML;
 						// Hide header
 						$(this).parent().children('.navigation-menu-group[aria-controls="'+$(this).attr('id')+'"]').hide();
 					}
-				});			
+				});
 				
+				{$sPrefix}UpdateEmptyLabel();
 			}
-			
 			function {$sPrefix}DisplayActiveMenu()
 			{
 				//reapply default display (ie active menus/submenus)
 				oMenuElem.find('.ui-accordion-content').hide();
 				oMenuElem.find('.navigation-menu-group').show();
 				oMenuElem.find('.ui-accordion-header-active, .ui-accordion-content-active, .ui-accordion-content-active .navigation-menu-item').show();
+			}
+			function {$sPrefix}UpdateEmptyLabel()
+			{
+				if (oMenuElem.find('.navigation-menu-group:visible').length === 0)
+				{
+					oMenuElem.find('#$sPrefix-empty-label').addClass('displayed');	
+				}
+				else 
+				{
+					oMenuElem.find('#$sPrefix-empty-label').removeClass('displayed');
+				}
 			}
 JS
 

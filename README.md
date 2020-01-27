@@ -6,7 +6,7 @@
 - [TODOs](#todos)
 
 ## Description
-Administration console only.
+**📣 DISCLAIMER: This is a FAF, not an official extension. Use it on your test environments only.**
 
 Adds a filter above the main menu to help find entries quickly.
 

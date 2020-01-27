@@ -11,7 +11,7 @@
 Adds a filter above the main menu to help find entries quickly.
 
 ## Compatibility
-Compatible with iTop 2.6+
+Compatible with iTop 2.7+
 
 ## Screenshots
 *Filter is above the main menu*

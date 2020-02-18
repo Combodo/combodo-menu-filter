@@ -15,10 +15,10 @@ Compatible with iTop 2.7+
 
 ## Screenshots
 *Filter is above the main menu*
-![](docs/menu-filter-01.png)
+![](doc/menu-filter-01.png)
 
 *Type something in it to show only mathcing entries*
-![](docs/menu-filter-01.png)
+![](doc/menu-filter-01.png)
 
 ## Keyboard shortcuts
 - "Esc": Clear filter

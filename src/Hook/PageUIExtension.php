@@ -120,6 +120,7 @@ HTML;
 			{
 				// Empty text box
 				$('#$sPrefix-input').val('');
+				oMenuElem.find('.navigation-menu-item').show();
 				{$sPrefix}DisplayActiveMenu();
 				{$sPrefix}UpdateEmptyLabel();
 			}

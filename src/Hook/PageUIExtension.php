@@ -85,7 +85,6 @@ HTML;
 				if ((sFilterInputValue === "") || (oEvent.key === "Escape")) 
 				{
 					{$sPrefix}ClearFiltering();
-					{$sPrefix}UpdateEmptyLabel();
 				} 
 				else 
 				{
@@ -100,7 +99,6 @@ HTML;
 			// - Clear icon
 			$('#$sPrefix-clear-icon').on('click', function(){
 				{$sPrefix}ClearFiltering();
-				{$sPrefix}UpdateEmptyLabel();
 				$('#$sPrefix-input').trigger('focus');
 			});
 			
@@ -120,8 +118,9 @@ HTML;
 			{
 				// Empty text box
 				$('#$sPrefix-input').val('');
+				oMenuElem.find('.navigation-menu-item').show();
+				{$sPrefix}FilterMenus('');
 				{$sPrefix}DisplayActiveMenu();
-				{$sPrefix}UpdateEmptyLabel();
 			}
 			function {$sPrefix}FilterMenus(sFilterInputValue)
 			{

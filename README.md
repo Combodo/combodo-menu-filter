@@ -18,7 +18,7 @@ Compatible with iTop 2.7+
 ![](doc/menu-filter-01.png)
 
 *Type something in it to show only mathcing entries*
-![](doc/menu-filter-01.png)
+![](doc/menu-filter-02.png)
 
 ## Keyboard shortcuts
 - "Esc": Clear filter

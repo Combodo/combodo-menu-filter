@@ -1,0 +1,2 @@
+login;password;contactid->org_name;contactid->first_name;contactid->name;status;language;profile_list;allowed_org_list
+config;config;IT Department;Administrator;Administrator;enabled;EN US;profileid->name:Administrator;

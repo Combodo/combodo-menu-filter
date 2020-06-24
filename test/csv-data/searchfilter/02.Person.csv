@@ -1,0 +1,2 @@
+first_name;name;org_id->name;status;email;phone;notify;function;manager_id->email
+Administrator;Administrator;IT Department;active;config.quality@combodo.com;;yes;ConfigManager qui voit tout;

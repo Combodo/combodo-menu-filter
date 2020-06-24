@@ -1,0 +1,5 @@
+{
+  "Organization": "name",
+  "Person": "name,first_name,org_id->name",
+  "UserLocal": "login"
+}

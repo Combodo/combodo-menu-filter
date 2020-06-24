@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension format="1.0">
+	<extension_code>combodo-menu-filter</extension_code>
+	<company>Combodo SARL</company>
+	<author><![CDATA[Odain]]></author>
+	<label><![CDATA[Quick menu search]]></label>
+	<description><![CDATA[blabla]]></description>
+	<version>666</version>
+	<release_date>1970-01-01</release_date>
+	<version_description></version_description>
+	<itop_version_min>2.5.0</itop_version_min>
+	<status></status>
+	<mandatory>false</mandatory>
+	<more_info_url></more_info_url>
+</extension>

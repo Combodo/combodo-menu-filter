@@ -79,13 +79,22 @@ HTML;
 			$('#$sPrefix-input').on('keyup', function(oEvent){
 				var oInputElem = $(this);
 				
-				//filter mnenus listener
+				//filter menus listener
 				var sFilterInputValue = {$sPrefix}GetFilterValue();
 				
 				if ((sFilterInputValue === "") || (oEvent.key === "Escape")) 
 				{
 					{$sPrefix}ClearFiltering();
-				} 
+				}
+				else if (oEvent.key  === "Enter" )
+				{
+					if ($('.navigation-menu-item:visible').length === 1)
+					{
+				        $('.navigation-menu-item:visible a').each(function(){
+			                window.location.href = $(this).attr('href');
+				        });
+					}
+				}
 				else 
 				{
 					// Reset throttle timeout on key stroke

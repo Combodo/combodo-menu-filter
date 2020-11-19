@@ -11,4 +11,4 @@ Feature: Test itop
 	#Then I should see "Type your keywords to filter below menus"
    # And I fill in "Type your keywords to filter below menus" with "configuration"
   #  And I wait for 2 seconds
-    Then I follow "Déconnexion"
+   # Then I follow "Déconnexion"

@@ -13,4 +13,4 @@ Feature: Test itop
   #  And I wait for 2 seconds                           |
     Then I click on "Ok"
     And I wait for 2 seconds
-    Then I follow "Déconnexion"
+    Then I follow "Log off"
